@@ -1,0 +1,20 @@
+{
+  "name": "phonebook-backend",
+  "version": "0.0.1",
+  "description": "Fullstack phonebook backend project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tristanmason/phonebook-backend.git"
+  },
+  "author": "Tristan Mason",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tristanmason/phonebook-backend/issues"
+  },
+  "homepage": "https://github.com/tristanmason/phonebook-backend#readme"
+}
