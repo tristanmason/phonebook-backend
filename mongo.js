@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.set('useUnifiedTopology', true);
+mongoose.set('useUnifiedTopology', true)
 
 if ( process.argv.length<3 ) {
   console.log('give password as argument')
@@ -24,15 +24,15 @@ const Person = mongoose.model('Person', personSchema)
 
 if (name !== undefined && phone !==undefined) {
 
-    const person = new Person({
-      name: name,
-      phone: phone
-    })
+  const person = new Person({
+    name: name,
+    phone: phone
+  })
 
-    person.save().then(response => {
+  person.save().then(response => {
     console.log(`added ${name} number ${phone} to database`)
     mongoose.connection.close()
-    })
+  })
 
 } else {
   console.log('phonebook:')

@@ -11,10 +11,10 @@ const cors = require('cors')
 app.use(cors())
 
 const morgan = require('morgan')
-app.use(morgan(':method :url :status :res[content-length] - :response-time ms :reqData'));
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :reqData'))
 morgan.token('reqData', function(req, res) {
-	return JSON.stringify(req.body);
-});
+  return JSON.stringify(req.body)
+})
 
 app.use(express.static('build'))
 
@@ -25,7 +25,7 @@ app.get('/api/persons', (request, response) => {
 })
 
 app.get('/info', (request, response) => {
-  const timeNow = new Date( Date.now() );
+  const timeNow = new Date( Date.now() )
   Person.find({}).then(persons => {
     response.send(`Phonebook has info for ${persons.length} people.<br>${timeNow}`)
   })
@@ -55,14 +55,14 @@ app.post('/api/persons', (request, response, next) => {
   const body = request.body
 
   if (!body.name) {
-    return response.status(400).json({ 
-      error: 'name missing' 
+    return response.status(400).json({
+      error: 'name missing'
     })
   }
 
   if (!body.phone) {
-    return response.status(400).json({ 
-      error: 'phone number missing' 
+    return response.status(400).json({
+      error: 'phone number missing'
     })
   }
 
@@ -104,7 +104,7 @@ app.use(unknownEndpoint)
 const errorHandler = (error, request, response, next) => {
   console.error(error.message)
 
-  if (error.name === 'CastError' && error.kind == 'ObjectId') {
+  if (error.name === 'CastError' && error.kind === 'ObjectId') {
     return response.status(400).send({ error: 'malformatted id' })
   } else if (error.name === 'ValidationError') {
     return response.status(400).json({ error: error.message })
