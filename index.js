@@ -24,6 +24,7 @@ app.get('/api/persons', (request, response) => {
   })
 })
 
+// I made this work earlier than 3.18, so it is unchanged here
 app.get('/info', (request, response) => {
   const timeNow = new Date( Date.now() );
   Person.find({}).then(persons => {
@@ -31,6 +32,7 @@ app.get('/info', (request, response) => {
   })
 })
 
+// I made this work earlier than 3.18, so it is unchanged here
 app.get('/api/persons/:id', (request, response, next) => {
   Person.findById(request.params.id)
     .then(person => {
