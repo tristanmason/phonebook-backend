@@ -25,8 +25,8 @@ const Person = mongoose.model('Person', personSchema)
 if (name !== undefined && phone !==undefined) {
 
     const person = new Person({
-    name: name,
-    phone: phone
+      name: name,
+      phone: phone
     })
 
     person.save().then(response => {
